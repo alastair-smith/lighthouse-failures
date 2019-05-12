@@ -4,7 +4,8 @@
   "description": "Docker image to check lighthouse for failures, intended for use in CI pipelines",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:unit",
+    "test:unit": "mocha --recursive",
     "linter:js": "standard"
   },
   "keywords": [],
@@ -14,6 +15,17 @@
     "lighthouse": "^5.0.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "rewire": "^4.0.1",
+    "sinon": "^7.3.2",
     "standard": "^12.0.1"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "expect"
+    ]
   }
 }

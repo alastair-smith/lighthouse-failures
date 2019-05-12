@@ -21,6 +21,11 @@ steps:
   commands:
     - npm run linter:js
 
+- name: unit tests
+  <<: *node-image
+  commands:
+    - npm run test:unit
+
 - name: dev release
   image: plugins/docker
   settings:
