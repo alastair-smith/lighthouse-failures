@@ -48,6 +48,10 @@ steps:
     repo: alsmith/lighthouse-failures
     tags:
       - latest
+    when:
+      branch:
+        include:
+          - master
     event:
       - push
 
