@@ -11,6 +11,6 @@ RUN cd /app && npm ci
 
 COPY src /app
 
-RUN chmod -R 755 /app && chown -R node /app && ln -s /app/index.js /usr/local/bin/checkLighthouseFailures
+RUN chmod 755 /app/index.js && chown node /app/index.js && ln -s /app/index.js /usr/local/bin/checkLighthouseFailures
 
 USER node
