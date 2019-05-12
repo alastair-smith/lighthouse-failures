@@ -1,0 +1,19 @@
+{
+  "name": "lighthouse-failures",
+  "version": "1.0.0",
+  "description": "Docker image to check lighthouse for failures, intended for use in CI pipelines",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "linter": "standard"
+  },
+  "keywords": [],
+  "author": "Alastair Smith",
+  "license": "ISC",
+  "dependencies": {
+    "lighthouse": "^5.0.0"
+  },
+  "devDependencies": {
+    "standard": "^12.0.1"
+  }
+}
