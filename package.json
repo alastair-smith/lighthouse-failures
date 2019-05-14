@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run test:unit",
-    "test:unit": "mocha --recursive",
+    "test:unit": "mocha --require ./.mocha.config.js --recursive",
     "linter:js": "standard"
   },
   "keywords": [],
@@ -16,15 +16,18 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "mocha": "^6.1.4",
     "rewire": "^4.0.1",
     "sinon": "^7.3.2",
     "standard": "^12.0.1"
   },
   "standard": {
+    "env": [
+      "mocha"
+    ],
     "globals": [
-      "describe",
-      "it",
+      "createSandbox",
       "expect"
     ]
   }

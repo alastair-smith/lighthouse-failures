@@ -13,7 +13,7 @@ module.exports = async url => {
 
     return auditResults
   } catch (error) {
-    console.error(error)
+    console.error(error.message)
     process.exit(1)
   }
 }
