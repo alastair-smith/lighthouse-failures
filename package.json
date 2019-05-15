@@ -1,0 +1,34 @@
+{
+  "name": "lighthouse-failures",
+  "version": "1.0.0",
+  "description": "Docker image to check lighthouse for failures, intended for use in CI pipelines",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:unit",
+    "test:unit": "mocha --require ./.mocha.config.js --recursive",
+    "linter:js": "standard"
+  },
+  "keywords": [],
+  "author": "Alastair Smith",
+  "license": "ISC",
+  "dependencies": {
+    "lighthouse": "^5.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.1.4",
+    "rewire": "^4.0.1",
+    "sinon": "^7.3.2",
+    "standard": "^12.0.1"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ],
+    "globals": [
+      "createSandbox",
+      "expect"
+    ]
+  }
+}
