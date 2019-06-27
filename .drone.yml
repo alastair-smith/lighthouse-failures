@@ -52,13 +52,21 @@ steps:
       from_secret: DOCKERHUB_PASSWORD
     repo: alsmith/lighthouse-failures
     tags:
-      - latest
+      - edge
   when:
     branch:
       include:
         - master
     event:
       - push
+
+- name: decide tags
+  image: alpine
+  commands:
+    - echo -n "$DRONE_TAG,latest" > .tags
+  when:
+    event:
+      - tag
 
 - name: tag release
   image: plugins/docker
@@ -68,9 +76,6 @@ steps:
     password:
       from_secret: DOCKERHUB_PASSWORD
     repo: alsmith/lighthouse-failures
-    tags:
-      - $DRONE_TAG
-      - latest
   when:
     event:
       - tag
