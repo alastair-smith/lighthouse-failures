@@ -69,8 +69,6 @@ steps:
     password:
       from_secret: DOCKERHUB_PASSWORD
     repo: alsmith/lighthouse-failures
-    tags:
-      - latest
   when:
     event:
       - tag
