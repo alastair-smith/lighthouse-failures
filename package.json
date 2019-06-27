@@ -12,6 +12,7 @@
   "author": "Alastair Smith",
   "license": "ISC",
   "dependencies": {
+    "commander": "^2.20.0",
     "lighthouse": "^5.0.0"
   },
   "devDependencies": {

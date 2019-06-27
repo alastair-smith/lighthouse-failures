@@ -2,7 +2,7 @@ const {
   SUCCESS_MESSAGE
 } = require('../constants')
 
-module.exports = failedResults => {
+module.exports = (failedResults, numberOfIgnoredRules) => {
   if (failedResults.length) {
     console.log('The following rules had failures:\n')
     failedResults
@@ -12,4 +12,5 @@ module.exports = failedResults => {
   } else {
     console.log(SUCCESS_MESSAGE)
   }
+  if (numberOfIgnoredRules > 0) console.log(`🤫 Ignored ${numberOfIgnoredRules} rules`)
 }

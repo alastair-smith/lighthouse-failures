@@ -1,3 +1,3 @@
 module.exports = {
-  SUCCESS_MESSAGE: 'All lighthouse rules passed'
+  SUCCESS_MESSAGE: '✔️ All lighthouse rules passed'
 }
