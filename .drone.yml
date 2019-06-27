@@ -63,7 +63,7 @@ steps:
 - name: tag release
   image: plugins/docker
   settings:
-    autotag: true
+    auto_tag: true
     username:
       from_secret: DOCKERHUB_USERNAME
     password:
