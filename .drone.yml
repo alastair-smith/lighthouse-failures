@@ -60,4 +60,18 @@ steps:
     event:
       - push
 
+- name: tag release
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: DOCKERHUB_USERNAME
+    password:
+      from_secret: DOCKERHUB_PASSWORD
+    repo: alsmith/lighthouse-failures
+    tags:
+      - $DRONE_TAG
+      - latest
+  when:
+    event:
+      - tag
     
