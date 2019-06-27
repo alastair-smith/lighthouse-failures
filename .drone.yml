@@ -60,10 +60,17 @@ steps:
     event:
       - push
 
+- name: decide tags
+  image: alpine
+  commands:
+    - echo -n "$DRONE_TAG,latest" > .tags
+  when:
+    event:
+      - tag
+
 - name: tag release
   image: plugins/docker
   settings:
-    auto_tag: true
     username:
       from_secret: DOCKERHUB_USERNAME
     password:
