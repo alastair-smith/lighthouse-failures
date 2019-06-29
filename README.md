@@ -13,13 +13,13 @@
 Run the docker image [alsmith/lighthouse-failures:latest](https://hub.docker.com/r/alsmith/lighthouse-failures).
 
 ```bash
-docker run alsmith/lighthouse-failures:latest checkLighthouseFailures <your website>
+docker run alsmith/lighthouse-failures:latest checkLighthouseFailures --url <your website>
 ```
 
 E.g.
 
 ```
-$ docker run alsmith/check-lighthouse-failures:latest checkLighthouseFailures https://broken.alsmith.dev
+$ docker run alsmith/check-lighthouse-failures:latest checkLighthouseFailures --url https://broken.example.com
 
 The following rules had failures:
 ❌ Does not redirect HTTP traffic to HTTPS
@@ -32,10 +32,27 @@ The following rules had failures:
 ❌ start_url does not respond with a 200 when offline
 Total lighthouse failures: 8
 
-$ docker run alsmith/lighthouse-failures:latest checkLighthouseFailures https://fixed.alsmith.dev
+$ docker run alsmith/lighthouse-failures:latest checkLighthouseFailures --url https://fixed.example.com
 
-All lighthouse rules passed
+✔️  All lighthouse rules passed
 ```
+
+You can ignore specific rules by using the `--ignore-rules` flag with comma seperated rule ids e.g.
+
+```
+$ docker run alsmith/lighthouse-failures:latest checkLighthouseFailures --url https://broken.example.com --ignore-rules service-worker,works-offline
+The following rules had failures:
+❌ Does not redirect HTTP traffic to HTTPS
+❌ Web app manifest does not meet the installability requirements
+❌ Does not provide a valid `apple-touch-icon`
+❌ Is not configured for a custom splash screen
+❌ Does not set an address-bar theme color
+❌ start_url does not respond with a 200 when offline
+Total lighthouse failures: 6
+🤫 Ignored 2 rules
+```
+
+Rule ids can be obtained by running lighthouse in your browser, downloading the report, and searching through for the rule you want to ignore.
 
 ## Build ##
 

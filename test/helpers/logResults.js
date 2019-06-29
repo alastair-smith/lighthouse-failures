@@ -26,4 +26,17 @@ describe('function logResults', () => {
     expect(console.log.calledWith('❌ bad seo')).to.equal(true)
     expect(console.log.calledWith('❌ no meta description')).to.equal(true)
   })
+  it('should log a message for the number of ignored rules after a failure', () => {
+    const failedResults = [{
+      title: 'bad seo'
+    }, {
+      title: 'no meta description'
+    }]
+    logResults(failedResults, 3)
+    expect(console.log.calledWith('🤫 Ignored 3 rules'))
+  })
+  it('should log a message for the number of ignored rules after a success', () => {
+    logResults([], 2)
+    expect(console.log.calledWith('🤫 Ignored 2 rules'))
+  })
 })

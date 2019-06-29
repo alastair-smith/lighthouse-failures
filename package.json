@@ -1,6 +1,6 @@
 {
   "name": "lighthouse-failures",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Docker image to check lighthouse for failures, intended for use in CI pipelines",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
   "author": "Alastair Smith",
   "license": "ISC",
   "dependencies": {
+    "commander": "^2.20.0",
     "lighthouse": "^5.0.0"
   },
   "devDependencies": {
