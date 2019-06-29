@@ -52,6 +52,8 @@ Total lighthouse failures: 6
 🤫 Ignored 2 rules
 ```
 
+Rule ids can be obtained by running lighthouse in your browser, downloading the report, and searching through for the rule you want to ignore.
+
 ## Build ##
 
 To build the image yourself:
